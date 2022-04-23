@@ -14,7 +14,7 @@
   box-sizing: border-box;
   color: rgba(0, 0, 0, 0.637);
   transition: all 0.5s;
-  margin: 2rem;
+  margin: 1rem;
   text-align: center;
 }
 
@@ -36,11 +36,11 @@
 }
 
 .productListTable a:hover {
-  color: tomato;
+  color: rgb(47, 100, 129);
 }
 
 .productListTable button:hover {
-  color: rgb(236, 30, 30);
+  color: rgb(116, 15, 73);
 }
 
 .MuiDataGrid-columnHeader div {
