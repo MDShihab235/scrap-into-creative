@@ -18,7 +18,7 @@ const About = () => {
           <div>
             <Avatar
               style={{ width: "10vmax", height: "10vmax", margin: "2vmax 0" }}
-              src="https://res.cloudinary.com/tripleayt/image/upload/v1631555947/products/jpyibarlaxawvcvqjv5b.png"
+              src="https://res.cloudinary.com/ecomme/image/upload/v1650831020/my%20Photo/DSC_3171_wzupkm.jpg"
               alt="Founder"
             />
             <Typography>Mohammad Shihab Uddin</Typography>
@@ -26,8 +26,8 @@ const About = () => {
               Visit Instagram
             </Button>
             <span>
-              This is a sample wesbite made by Shihab. Only with the purpose to
-              teach MERN Stack on the channel 6 Pack Programmer
+              This is an ecommerce wesbite made by Shihab. We are buying and
+              selling scrap or creative all types of products.
             </span>
           </div>
           <div className="aboutSectionContainer2">

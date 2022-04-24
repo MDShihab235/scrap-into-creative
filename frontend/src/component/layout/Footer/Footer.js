@@ -1,6 +1,7 @@
 import React from "react";
 import playStore from "../../../images/playstore.png";
 import appStore from "../../../images/Appstore.png";
+import logo from "../../../images/logo.png";
 import "./Footer.css";
 
 const Footer = () => {
@@ -14,7 +15,9 @@ const Footer = () => {
       </div>
 
       <div className="midFooter">
-        <h1>ECOMMERCE.</h1>
+        <span>
+          <img src={logo} alt="logo" />
+        </span>
         <p>High Quality is our first priority</p>
 
         <p>Copyrights 2022 &copy; Md Shihab</p>

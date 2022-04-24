@@ -45,6 +45,11 @@ footer {
   max-width: 60%;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   margin: 1vmax auto;
+  font-size: 1.2vmax;
+}
+
+.midFooter span img {
+  width: 40%;
 }
 
 .rightFooter {
