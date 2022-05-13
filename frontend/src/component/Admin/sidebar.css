@@ -24,7 +24,7 @@
   transition: all 0.5s;
 }
 .sidebar a:hover {
-  color: tomato;
+  color: rgb(14, 146, 23);
   transform: scale(1.1);
 }
 

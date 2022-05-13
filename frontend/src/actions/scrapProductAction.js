@@ -64,7 +64,6 @@ export const getAdminScrapProduct = () => async (dispatch) => {
     dispatch({ type: ADMIN_SCRAP_PRODUCT_REQUEST });
 
     const { data } = await axios.get("/api/v1/admin/scrap-products");
-    console.log(data);
 
     dispatch({
       type: ADMIN_SCRAP_PRODUCT_SUCCESS,
