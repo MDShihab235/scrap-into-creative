@@ -19,7 +19,7 @@ const Sidebar = () => {
         <img src={logo} alt="Ecommerce" />
       </Link> */}
       <Link to="/admin/dashboard">
-        <p>
+        <p className={{ marginLeft: "5px" }}>
           <DashboardIcon /> Dashboard
         </p>
       </Link>
