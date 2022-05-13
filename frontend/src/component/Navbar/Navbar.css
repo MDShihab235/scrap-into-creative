@@ -73,12 +73,12 @@ li {
 }
 
 .menu-link ul li a {
-  color: rgba(0, 0, 3, 0.8);
+  color: rgb(143, 209, 215);
   transition: 0.5s;
 }
 .menu-link ul li:hover > a {
   transform-origin: left;
-  color: rgba(0, 0, 3, 1);
+  color: rgb(228, 228, 250);
   text-decoration: underline;
   transition: 0.5s;
 }
