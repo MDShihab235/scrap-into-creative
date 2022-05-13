@@ -69,6 +69,7 @@
   flex-wrap: wrap;
   justify-content: center;
   max-width: 100%;
+  background-color: rgb(7, 0, 24);
 }
 
 .productCard {
@@ -80,7 +81,6 @@
   margin: 2vmax;
   transition: all 0.5s;
   padding-bottom: 0.5vmax;
-  background-color: rgb(15, 2, 37);
 }
 
 .productCard > img {
