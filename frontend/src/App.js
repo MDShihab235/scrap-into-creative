@@ -1,6 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import Header from "./component/layout/Header/Header.js";
+// import Header from "./component/layout/Header/Header.js";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import WebFont from "webfontloader";
 import React from "react";
@@ -34,15 +34,21 @@ import Dashboard from "./component/Admin/Dashboard.js";
 import ProductList from "./component/Admin/ProductList.js";
 import NewProduct from "./component/Admin/NewProduct";
 import UpdateProduct from "./component/Admin/UpdateProduct";
+import ScrapProductList from "./component/Admin/ScrapProductList.js";
+import ScrapNewProduct from "./component/Admin/ScrapNewProduct";
+import ScrapUpdateProduct from "./component/Admin/ScrapUpdateProduct";
 import OrderList from "./component/Admin/OrderList";
 import ProcessOrder from "./component/Admin/ProcessOrder";
 import UsersList from "./component/Admin/UsersList";
 import UpdateUser from "./component/Admin/UpdateUser";
 import ProductReviews from "./component/Admin/ProductReviews";
+import ScrapProductReviews from "./component/Admin/ScrapProductReviews";
 import Contact from "./component/layout/Contact/Contact";
 import About from "./component/layout/About/About";
 import NotFound from "./component/layout/Not Found/NotFound";
 import Navbar from "./component/Navbar/Navbar";
+import ScrapProductDetails from "./component/Product/ScrapProductDetails";
+import ScrapProducts from "./component/Product/ScrapProducts";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -67,12 +73,12 @@ function App() {
     getStripeApiKey();
   }, []);
 
-  window.addEventListener("contextmenu", (e) => e.preventDefault());
+  // window.addEventListener("contextmenu", (e) => e.preventDefault());
 
   return (
     <Router>
-      {/* <Navbar /> */}
-      <Header />
+      <Navbar />
+      {/* <Header /> */}
 
       {isAuthenticated && <UserOptions user={user} />}
 
@@ -87,6 +93,14 @@ function App() {
         <Route exact path="/product/:id" component={ProductDetails} />
         <Route exact path="/products" component={Products} />
         <Route path="/products/:keyword" component={Products} />
+
+        <Route
+          exact
+          path="/scrap-product/:id"
+          component={ScrapProductDetails}
+        />
+        <Route exact path="/scrap-products" component={ScrapProducts} />
+        <Route path="/scrap-products/:keyword" component={ScrapProducts} />
 
         <Route exact path="/search" component={Search} />
 
@@ -136,9 +150,21 @@ function App() {
         />
         <ProtectedRoute
           exact
+          path="/admin/scrap-products"
+          isAdmin={true}
+          component={ScrapProductList}
+        />
+        <ProtectedRoute
+          exact
           path="/admin/product"
           isAdmin={true}
           component={NewProduct}
+        />
+        <ProtectedRoute
+          exact
+          path="/admin/scrap-product"
+          isAdmin={true}
+          component={ScrapNewProduct}
         />
 
         <ProtectedRoute
@@ -146,6 +172,13 @@ function App() {
           path="/admin/product/:id"
           isAdmin={true}
           component={UpdateProduct}
+        />
+
+        <ProtectedRoute
+          exact
+          path="/admin/scrap-product/:id"
+          isAdmin={true}
+          component={ScrapUpdateProduct}
         />
         <ProtectedRoute
           exact
@@ -179,6 +212,13 @@ function App() {
           path="/admin/reviews"
           isAdmin={true}
           component={ProductReviews}
+        />
+
+        <ProtectedRoute
+          exact
+          path="/admin/reviews"
+          isAdmin={true}
+          component={ScrapProductReviews}
         />
 
         <Route

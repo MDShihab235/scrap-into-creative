@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Doughnut, Line } from "react-chartjs-2";
 import { useSelector, useDispatch } from "react-redux";
 import { getAdminProduct } from "../../actions/productAction";
+import { getAdminScrapProduct } from "../../actions/scrapProductAction";
 import { getAllOrders } from "../../actions/orderAction.js";
 import { getAllUsers } from "../../actions/userAction.js";
 import MetaData from "../layout/MetaData";
@@ -14,6 +15,7 @@ const Dashboard = () => {
   const dispatch = useDispatch();
 
   const { products } = useSelector((state) => state.products);
+  const { scrapProducts } = useSelector((state) => state.scrapProducts);
 
   const { orders } = useSelector((state) => state.allOrders);
 
@@ -28,8 +30,16 @@ const Dashboard = () => {
       }
     });
 
+  scrapProducts &&
+    scrapProducts.forEach((item) => {
+      if (item.Stock === 0) {
+        outOfStock += 1;
+      }
+    });
+
   useEffect(() => {
     dispatch(getAdminProduct());
+    dispatch(getAdminScrapProduct());
     dispatch(getAllOrders());
     dispatch(getAllUsers());
   }, [dispatch]);
@@ -79,8 +89,12 @@ const Dashboard = () => {
           </div>
           <div className="dashboardSummaryBox2">
             <Link to="/admin/products">
-              <p>Product</p>
+              <p>Creative</p>
               <p>{products && products.length}</p>
+            </Link>
+            <Link to="/admin/scrap-products">
+              <p>Scrap</p>
+              <p>{scrapProducts && scrapProducts.length}</p>
             </Link>
             <Link to="/admin/orders">
               <p>Orders</p>
