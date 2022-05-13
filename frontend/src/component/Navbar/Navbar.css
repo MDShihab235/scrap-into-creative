@@ -27,6 +27,7 @@ li {
   /* padding: auto 10rem; */
   display: grid;
   grid-template-columns: 10rem 1fr 2fr 1fr 10rem;
+  background-color: #3b5998;
 }
 
 .logo {
