@@ -17,9 +17,11 @@ const Home = () => {
   const alert = useAlert();
   const dispatch = useDispatch();
   const { loading, error, products } = useSelector((state) => state.products);
-  const { scrapProducts, error: scraperror } = useSelector(
-    (state) => state.scrapProducts
-  );
+  const {
+    loading: loadingScrap,
+    error: scraperror,
+    products: scrapProducts,
+  } = useSelector((state) => state.scrapProducts);
 
   useEffect(() => {
     if (error) {
@@ -39,7 +41,7 @@ const Home = () => {
 
   return (
     <Fragment>
-      {loading ? (
+      {loading && loadingScrap ? (
         <Loader />
       ) : (
         <Fragment>
@@ -60,11 +62,8 @@ const Home = () => {
 
           <div className="container" id="container">
             {scrapProducts &&
-              scrapProducts.map((scrapProduct) => (
-                <ScrapProductCard
-                  key={scrapProduct._id}
-                  scrapProduct={scrapProduct}
-                />
+              scrapProducts.map((product) => (
+                <ScrapProductCard key={product._id} product={product} />
               ))}
           </div>
           <h2 className="homeHeading">Creative Featured Products</h2>
