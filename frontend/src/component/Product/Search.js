@@ -8,9 +8,9 @@ const Search = ({ history }) => {
   const searchSubmitHandler = (e) => {
     e.preventDefault();
     if (keyword.trim()) {
-      history.push(`/products/${keyword}` || `/scrap-products/${keyword}`);
-    } else {
-      history.push("/products" || "/scrap-products");
+      history.push(`/scrap-products/${keyword}`);
+    } else if (keyword.trim()) {
+      history.push(`/products/${keyword}`);
     }
   };
 

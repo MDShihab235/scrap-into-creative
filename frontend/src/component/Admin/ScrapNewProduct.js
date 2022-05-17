@@ -33,13 +33,14 @@ const ScrapNewProduct = ({ history }) => {
   const [imagesPreview, setImagesPreview] = useState([]);
 
   const categories = [
-    "Laptop",
-    "Footwear",
-    "Bottom",
-    "Tops",
-    "Attire",
-    "Camera",
-    "SmartPhones",
+    "Glass & Ceramics",
+    "Fabrics",
+    "Metals",
+    "Plastic",
+    "Paper",
+    "Rubber & Leather",
+    "Electronics",
+    "Woods and Furnitures",
   ];
 
   useEffect(() => {

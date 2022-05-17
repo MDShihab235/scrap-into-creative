@@ -38,13 +38,14 @@ const ScrapUpdateProduct = ({ history, match }) => {
   const [imagesPreview, setImagesPreview] = useState([]);
 
   const categories = [
-    "Laptop",
-    "Footwear",
-    "Bottom",
-    "Tops",
-    "Attire",
-    "Camera",
-    "SmartPhones",
+    "Glass & Ceramics",
+    "Fabrics",
+    "Metals",
+    "Plastic",
+    "Paper",
+    "Rubber & Leather",
+    "Electronics",
+    "Woods and Furnitures",
   ];
 
   const productId = match.params.id;

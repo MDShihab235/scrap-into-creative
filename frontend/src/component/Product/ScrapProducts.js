@@ -14,13 +14,14 @@ import Typography from "@material-ui/core/Typography";
 import MetaData from "../layout/MetaData";
 
 const categories = [
-  "Laptop",
-  "Footwear",
-  "Bottom",
-  "Tops",
-  "Attire",
-  "Camera",
-  "SmartPhones",
+  "Glass & Ceramics",
+  "Fabrics",
+  "Metals",
+  "Plastic",
+  "Paper",
+  "Rubber & Leather",
+  "Electronics",
+  "Woods and Furnitures",
 ];
 
 const ScrapProducts = ({ match }) => {

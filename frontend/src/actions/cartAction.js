@@ -8,6 +8,19 @@ import axios from "axios";
 // Add to Cart
 export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
   const { data } = await axios.get(`/api/v1/product/${id}`);
+  // const { scrapData } = await axios.get(`/api/v1/scrap-product/${id}`);
+
+  // dispatch({
+  //   type: ADD_TO_CART,
+  //   payload: {
+  //     product: scrapData.product._id,
+  //     name: scrapData.product.name,
+  //     price: scrapData.product.price,
+  //     image: scrapData.product.images[0].url,
+  //     stock: scrapData.product.Stock,
+  //     quantity,
+  //   },
+  // });
 
   dispatch({
     type: ADD_TO_CART,
@@ -35,11 +48,16 @@ export const removeItemsFromCart = (id) => async (dispatch, getState) => {
 };
 
 // SAVE SHIPPING INFO
-export const saveShippingInfo = (data) => async (dispatch) => {
+export const saveShippingInfo = (data, scrapData) => async (dispatch) => {
   dispatch({
     type: SAVE_SHIPPING_INFO,
     payload: data,
   });
+  // dispatch({
+  //   type: SAVE_SHIPPING_INFO,
+  //   payload: scrapData,
+  // });
 
   localStorage.setItem("shippingInfo", JSON.stringify(data));
+  // localStorage.setItem("shippingInfo", JSON.stringify(scrapData));
 };
