@@ -1,5 +1,6 @@
 const Order = require("../models/orderModel");
 const Product = require("../models/productModel");
+const ScrapProduct = require("../models/scrapProductModel");
 const ErrorHander = require("../utils/errorhander");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
@@ -108,11 +109,19 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
 
 async function updateStock(id, quantity) {
   const product = await Product.findById(id);
-
   product.Stock -= quantity;
-
   await product.save({ validateBeforeSave: false });
+
+  const scrapProduct = await ScrapProduct.findById(id);
+  scrapProduct.Stock -= quantity;
+  await scrapProduct.save({ validateBeforeSave: false });
 }
+
+// async function updateStock(id, quantity) {
+//   const scrapProduct = await ScrapProduct.findById(id);
+//   scrapProduct.Stock -= quantity;
+//   await scrapProduct.save({ validateBeforeSave: false });
+// }
 
 // delete Order -- Admin
 exports.deleteOrder = catchAsyncErrors(async (req, res, next) => {

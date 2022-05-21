@@ -7,7 +7,7 @@ import { RiShoppingBag3Fill, RiProfileFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [showMediaIcons, setShowMediaIcons] = useState(false);
+  const [showMediaIcons] = useState(false);
   return (
     <>
       <nav className="main-nav">

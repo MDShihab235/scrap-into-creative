@@ -11,7 +11,7 @@ import ReviewCard from "./ReviewCard.js";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
 import MetaData from "../layout/MetaData";
-import { addItemsToCart } from "../../actions/cartAction";
+import { addScrapItemsToCart } from "../../actions/cartAction";
 import {
   Dialog,
   DialogActions,
@@ -61,7 +61,10 @@ const ScrapProductDetails = ({ match }) => {
   };
 
   const addToCartHandler = () => {
-    dispatch(addItemsToCart(match.params.id, quantity));
+    dispatch(
+      // addItemsToCart(match.params.id, quantity),
+      addScrapItemsToCart(match.params.id, quantity)
+    );
     alert.success("Item Added To Cart");
   };
 

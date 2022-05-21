@@ -2,7 +2,11 @@ import React, { Fragment } from "react";
 import "./Cart.css";
 import CartItemCard from "./CartItemCard";
 import { useSelector, useDispatch } from "react-redux";
-import { addItemsToCart, removeItemsFromCart } from "../../actions/cartAction";
+import {
+  addItemsToCart,
+  addScrapItemsToCart,
+  removeItemsFromCart,
+} from "../../actions/cartAction";
 import { Typography } from "@material-ui/core";
 import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
 import { Link } from "react-router-dom";
@@ -16,7 +20,7 @@ const Cart = ({ history }) => {
     if (stock <= quantity) {
       return;
     }
-    dispatch(addItemsToCart(id, newQty));
+    dispatch(addItemsToCart(id, newQty), addScrapItemsToCart(id, newQty));
   };
 
   const decreaseQuantity = (id, quantity) => {
@@ -24,7 +28,7 @@ const Cart = ({ history }) => {
     if (1 >= quantity) {
       return;
     }
-    dispatch(addItemsToCart(id, newQty));
+    dispatch(addItemsToCart(id, newQty), addScrapItemsToCart(id, newQty));
   };
 
   const deleteCartItems = (id) => {
