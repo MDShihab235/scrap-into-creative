@@ -9,7 +9,7 @@ const Search = ({ history }) => {
     e.preventDefault();
     if (keyword.trim()) {
       history.push(`/scrap-products/${keyword}`);
-    } else if (keyword.trim()) {
+    } else {
       history.push(`/products/${keyword}`);
     }
   };
