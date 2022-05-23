@@ -15,7 +15,9 @@ const Dashboard = () => {
   const dispatch = useDispatch();
 
   const { products } = useSelector((state) => state.products);
-  const { scrapProducts } = useSelector((state) => state.scrapProducts);
+  const { products: scrapProducts } = useSelector(
+    (state) => state.scrapProducts
+  );
 
   const { orders } = useSelector((state) => state.allOrders);
 
@@ -73,6 +75,17 @@ const Dashboard = () => {
     ],
   };
 
+  const doughnutScrapState = {
+    labels: ["Out of Stock", "InStock"],
+    datasets: [
+      {
+        backgroundColor: ["#00A6B4", "#6800B4"],
+        hoverBackgroundColor: ["#4B5000", "#35014F"],
+        data: [outOfStock, scrapProducts.length - outOfStock],
+      },
+    ],
+  };
+
   return (
     <div className="dashboard">
       <MetaData title="Dashboard - Admin Panel" />
@@ -110,9 +123,13 @@ const Dashboard = () => {
         <div className="lineChart">
           <Line data={lineState} />
         </div>
-
+        <h2>Creative Products </h2>
         <div className="doughnutChart">
           <Doughnut data={doughnutState} />
+        </div>
+        <h2>Scrap Products</h2>
+        <div className="doughnutChart">
+          <Doughnut data={doughnutScrapState} />
         </div>
       </div>
     </div>

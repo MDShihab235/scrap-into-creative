@@ -22,6 +22,7 @@ const categories = [
   "Rubber & Leather",
   "Electronics",
   "Woods and Furnitures",
+  "Others",
 ];
 
 const ScrapProducts = ({ match }) => {

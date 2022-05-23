@@ -14,7 +14,15 @@
 
 .dashboardContainer > h1 {
   color: rgba(0, 0, 0, 0.733);
-  font: 300 2rem "Roboto";
+  font: 500 4rem "Roboto";
+  text-align: center;
+  width: 50%;
+  padding: 1.5rem;
+  margin: auto;
+}
+.dashboardContainer > h2 {
+  color: rgb(38, 55, 87);
+  font: 400 3rem "Roboto";
   text-align: center;
   width: 50%;
   padding: 1.5rem;
@@ -40,10 +48,13 @@
   margin: 0 2rem;
 }
 .dashboardSummaryBox2 > a {
-  color: rgb(255, 255, 255);
+  color: rgb(39, 39, 39);
   font: 300 2rem "Roboto";
   text-align: center;
-  background-color: rgb(26, 73, 58);
+  /* background-color: rgb(26, 73, 58); */
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+
   text-decoration: none;
   padding: 1.5rem;
   width: 10vmax;
@@ -57,13 +68,17 @@
 }
 
 .dashboardSummaryBox2 > a:first-child {
-  background-color: #d32d41;
-  color: rgb(255, 255, 255);
+  /* background-color: #d32d41; */
+  color: rgb(45, 45, 45);
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
 }
 
 .dashboardSummaryBox2 > a:last-child {
-  background-color: rgb(51, 51, 51);
-  color: rgb(255, 255, 255);
+  /* background-color: rgb(51, 51, 51); */
+  color: rgb(34, 31, 31);
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
 }
 
 .lineChart {

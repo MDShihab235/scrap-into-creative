@@ -46,6 +46,7 @@ const ScrapUpdateProduct = ({ history, match }) => {
     "Rubber & Leather",
     "Electronics",
     "Woods and Furnitures",
+    "Others",
   ];
 
   const productId = match.params.id;

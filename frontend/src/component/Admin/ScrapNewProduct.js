@@ -41,6 +41,7 @@ const ScrapNewProduct = ({ history }) => {
     "Rubber & Leather",
     "Electronics",
     "Woods and Furnitures",
+    "Others",
   ];
 
   useEffect(() => {
