@@ -1,7 +1,12 @@
 .updateOrderForm {
-  margin: 5vmax 0;
-  padding: 3vmax;
-  background-color: white;
+  margin: 2rem 0;
+  padding: 1vmax;
+  background-color: rgb(255, 255, 255);
+}
+
+.orderDetailsContainerBox {
+  margin: 2rem 0;
+  padding: 1vmax;
 }
 
 .updateOrderForm > div {
@@ -24,7 +29,11 @@
   position: absolute;
   transform: translateX(1vmax);
   font-size: 1.6vmax;
-  color: rgba(0, 0, 0, 0.623);
+  color: rgb(255, 255, 255);
+}
+
+.confirmshippingArea {
+  color: rgb(31, 59, 79);
 }
 
 @media screen and (max-width: 600px) {

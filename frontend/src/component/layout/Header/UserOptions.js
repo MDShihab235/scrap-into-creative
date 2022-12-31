@@ -35,21 +35,6 @@ const UserOptions = ({ user }) => {
     { icon: <ExitToAppIcon />, name: "Logout", func: logoutUser },
   ];
 
-  const userOptions = [
-    { icon: <ListAltIcon />, name: "Orders", func: orders },
-    { icon: <PersonIcon />, name: "Profile", func: account },
-    {
-      icon: (
-        <ShoppingCartIcon
-          style={{ color: cartItems.length > 0 ? "green" : "unset" }}
-        />
-      ),
-      name: `Cart(${cartItems.length})`,
-      func: cart,
-    },
-    { icon: <ExitToAppIcon />, name: "Logout", func: logoutUser },
-  ];
-
   if (user.role === "admin") {
     options.unshift({
       icon: <DashboardIcon />,
@@ -57,14 +42,14 @@ const UserOptions = ({ user }) => {
       func: dashboard,
     });
   }
-  if (user.role === "user") {
-    userOptions.unshift({
-      icon: <DashboardIcon />,
-      name: "Dashboard",
-      func: dashboard,
-      // func: userDashboard,
-    });
-  }
+  // if (user.role === "user") {
+  //   options.unshift({
+  //     icon: <DashboardIcon />,
+  //     name: "Dashboard",
+  //     func: userDashboard,
+  //     // func: userDashboard,
+  //   });
+  // }
 
   // function userDashboard() {
   //   history.push("/user/dashboard/:id");
@@ -73,6 +58,10 @@ const UserOptions = ({ user }) => {
   function dashboard() {
     history.push("/admin/dashboard");
   }
+
+  // function userDashboard() {
+  //   history.push("/user/dashboard");
+  // }
 
   function orders() {
     history.push("/orders");

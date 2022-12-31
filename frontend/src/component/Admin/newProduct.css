@@ -85,7 +85,13 @@
 }
 #createProductBtn {
   border: none;
-  background-color: rgb(14, 146, 23);
+  background-image: linear-gradient(
+    to right,
+    #43cea2 0%,
+    #185a9d 51%,
+    #43cea2 100%
+  );
+
   color: white;
   font: 300 0.9vmax "Roboto";
   width: 100%;

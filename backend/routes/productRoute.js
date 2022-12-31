@@ -20,6 +20,8 @@ router
   .route("/admin/products")
   .get(isAuthenticatedUser, authorizeRoles("admin"), getAdminProducts);
 
+router.route("/user/products").get(isAuthenticatedUser, getAdminProducts);
+
 router
   .route("/admin/product/new")
   .post(isAuthenticatedUser, authorizeRoles("admin"), createProduct);
@@ -28,6 +30,13 @@ router
   .route("/admin/product/:id")
   .put(isAuthenticatedUser, authorizeRoles("admin"), updateProduct)
   .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteProduct);
+
+router.route("/user/product/new").post(isAuthenticatedUser, createProduct);
+
+router
+  .route("/user/product/:id")
+  .put(isAuthenticatedUser, updateProduct)
+  .delete(isAuthenticatedUser, deleteProduct);
 
 router.route("/product/:id").get(getProductDetails);
 

@@ -92,6 +92,10 @@
 .filterBox > fieldset {
   border: 1px solid rgba(0, 0, 0, 0.329);
 }
+.bestSell {
+  color: rgb(0, 75, 62);
+  display: block;
+}
 
 @media screen and (max-width: 600px) {
   .filterBox {

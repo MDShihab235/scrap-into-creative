@@ -92,7 +92,12 @@
   cursor: pointer;
   color: white;
   transition: all 0.5s;
-  background-color: rgb(14, 146, 23);
+  background-image: linear-gradient(
+    to right,
+    #43cea2 0%,
+    #185a9d 51%,
+    #43cea2 100%
+  );
   font: 500 0.7vmax "Roboto";
   border-radius: 20px;
   padding: 0.5vmax 2vmax;
@@ -101,7 +106,12 @@
 }
 
 .detailsBlock-3-1 > button:last-child:hover {
-  background-color: rgb(14, 146, 23);
+  background-image: linear-gradient(
+    to right,
+    #43cea2 0%,
+    #185a9d 51%,
+    #43cea2 100%
+  );
 }
 
 .detailsBlock-3 > p {

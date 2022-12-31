@@ -49,6 +49,12 @@ import NotFound from "./component/layout/Not Found/NotFound";
 import Navbar from "./component/Navbar/Navbar";
 import ScrapProductDetails from "./component/Product/ScrapProductDetails";
 import ScrapProducts from "./component/Product/ScrapProducts";
+import UserDashboard from "./component/Admin/UserDashboard";
+import UserNewProduct from "./component/Admin/UserNewProduct";
+import UserProductList from "./component/Admin/UserProductList";
+import UserScrapNewProduct from "./component/Admin/UserScrapNewProduct";
+import UserScrapProductList from "./component/Admin/UserScrapProductList";
+import BestSell from "./component/Home/BestSell";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -93,6 +99,7 @@ function App() {
         <Route exact path="/product/:id" component={ProductDetails} />
         <Route exact path="/products" component={Products} />
         <Route path="/products/:keyword" component={Products} />
+        <Route exact path="/best" component={BestSell} />
 
         <Route
           exact
@@ -138,8 +145,8 @@ function App() {
         <Route
           isAdmin={false}
           exact
-          path="/user/dashboard/:id"
-          component={Dashboard}
+          path="/user/dashboard"
+          component={UserDashboard}
         />
 
         <ProtectedRoute
@@ -156,10 +163,24 @@ function App() {
         />
         <ProtectedRoute
           exact
+          path="/user/products"
+          isAdmin={false}
+          component={UserProductList}
+        />
+
+        <ProtectedRoute
+          exact
           path="/admin/scrap-products"
           isAdmin={true}
           component={ScrapProductList}
         />
+        <ProtectedRoute
+          exact
+          path="/user/scrap-products"
+          isAdmin={false}
+          component={UserScrapProductList}
+        />
+
         <ProtectedRoute
           exact
           path="/admin/product"
@@ -168,9 +189,21 @@ function App() {
         />
         <ProtectedRoute
           exact
+          path="/user/product"
+          isAdmin={false}
+          component={UserNewProduct}
+        />
+        <ProtectedRoute
+          exact
           path="/admin/scrap-product"
           isAdmin={true}
           component={ScrapNewProduct}
+        />
+        <ProtectedRoute
+          exact
+          path="/user/scrap-product"
+          isAdmin={false}
+          component={UserScrapNewProduct}
         />
 
         <ProtectedRoute
@@ -227,11 +260,11 @@ function App() {
           component={ScrapProductReviews}
         />
 
-        <Route
+        {/* <Route
           component={
-            window.location.pathname === "/process/payment" ? null : NotFound
+            // window.location.pathname === "/process/payment" ? null : NotFound
           }
-        />
+        /> */}
       </Switch>
 
       <Footer />

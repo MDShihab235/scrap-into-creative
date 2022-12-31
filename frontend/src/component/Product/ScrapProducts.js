@@ -12,6 +12,9 @@ import Slider from "@material-ui/core/Slider";
 import { useAlert } from "react-alert";
 import Typography from "@material-ui/core/Typography";
 import MetaData from "../layout/MetaData";
+import { getAllOrders } from "../../actions/orderAction";
+import BestSell from "../Home/BestSell";
+import { Link } from "react-router-dom";
 
 const categories = [
   "Glass & Ceramics",
@@ -35,6 +38,8 @@ const ScrapProducts = ({ match }) => {
   const [category, setCategory] = useState("");
 
   const [ratings, setRatings] = useState(0);
+
+  const { orders } = useSelector((state) => state.allOrders);
 
   const {
     products,
@@ -61,9 +66,14 @@ const ScrapProducts = ({ match }) => {
       alert.error(error);
       dispatch(scrapClearErrors());
     }
-
+    dispatch(getAllOrders());
     dispatch(getScrapProduct(keyword, currentPage, price, category, ratings));
   }, [dispatch, keyword, currentPage, price, category, ratings, alert, error]);
+
+  const handleClick = (event, newValue) => {
+    document.getElementById("bestSell").style.display = "block";
+    document.getElementById("products").style.display = "none";
+  };
 
   return (
     <Fragment>
@@ -72,13 +82,26 @@ const ScrapProducts = ({ match }) => {
       ) : (
         <Fragment>
           <MetaData title="SCRAP PRODUCTS" />
-          <h2 className="productsHeading">Products</h2>
+          <div id="products">
+            <h2 className="productsHeading">Products</h2>
 
-          <div className="products">
-            {products &&
-              products.map((product) => (
-                <ScrapProductCard key={product._id} product={product} />
-              ))}
+            <div className="products">
+              {products &&
+                products.map((product) => (
+                  <ScrapProductCard key={product._id} product={product} />
+                ))}
+            </div>
+          </div>
+
+          <div style={{ display: "none" }} id="bestSell">
+            <h2 className="homeHeading">Best Selling Products</h2>
+
+            <div className="products">
+              {orders &&
+                orders.map((order) => (
+                  <BestSell key={order._id} order={order} />
+                ))}
+            </div>
           </div>
 
           <div className="filterBox">
@@ -118,7 +141,12 @@ const ScrapProducts = ({ match }) => {
                 max={5}
               />
             </fieldset>
+
+            <Link className="bestSell" onClick={handleClick}>
+              Best Selling
+            </Link>
           </div>
+
           {resultPerPage < count && (
             <div className="paginationBox">
               <Pagination

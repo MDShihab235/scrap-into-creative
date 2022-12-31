@@ -20,9 +20,20 @@ router
   .route("/admin/scrap-products")
   .get(isAuthenticatedUser, authorizeRoles("admin"), getAdminProducts);
 
+router.route("/user/scrap-products").get(isAuthenticatedUser, getAdminProducts);
+
 router
   .route("/admin/scrap-product/new")
   .post(isAuthenticatedUser, authorizeRoles("admin"), createProduct);
+
+router
+  .route("/user/scrap-product/new")
+  .post(isAuthenticatedUser, createProduct);
+
+router
+  .route("/user/scrap-product/:id")
+  .put(isAuthenticatedUser, updateProduct)
+  .delete(isAuthenticatedUser, deleteProduct);
 
 router
   .route("/admin/scrap-product/:id")

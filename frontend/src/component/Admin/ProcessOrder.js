@@ -69,11 +69,15 @@ const ProcessOrder = ({ history, match }) => {
             >
               <div>
                 <div className="confirmshippingArea">
-                  <Typography>Shipping Info</Typography>
+                  <Typography>Shipping Information</Typography>
                   <div className="orderDetailsContainerBox">
                     <div>
                       <p>Name:</p>
                       <span>{order.user && order.user.name}</span>
+                    </div>
+                    <div>
+                      <p>Email:</p>
+                      <span>{order.user && order.user.email}</span>
                     </div>
                     <div>
                       <p>Phone:</p>
@@ -87,45 +91,6 @@ const ProcessOrder = ({ history, match }) => {
                         {order.shippingInfo &&
                           `${order.shippingInfo.address}, ${order.shippingInfo.city}, ${order.shippingInfo.state}, ${order.shippingInfo.pinCode}, ${order.shippingInfo.country}`}
                       </span>
-                    </div>
-                  </div>
-
-                  <Typography>Payment</Typography>
-                  <div className="orderDetailsContainerBox">
-                    <div>
-                      <p
-                        className={
-                          order.paymentInfo &&
-                          order.paymentInfo.status === "succeeded"
-                            ? "greenColor"
-                            : "redColor"
-                        }
-                      >
-                        {order.paymentInfo &&
-                        order.paymentInfo.status === "succeeded"
-                          ? "PAID"
-                          : "NOT PAID"}
-                      </p>
-                    </div>
-
-                    <div>
-                      <p>Amount:</p>
-                      <span>{order.totalPrice && order.totalPrice}</span>
-                    </div>
-                  </div>
-
-                  <Typography>Order Status</Typography>
-                  <div className="orderDetailsContainerBox">
-                    <div>
-                      <p
-                        className={
-                          order.orderStatus && order.orderStatus === "Delivered"
-                            ? "greenColor"
-                            : "redColor"
-                        }
-                      >
-                        {order.orderStatus && order.orderStatus}
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -154,6 +119,43 @@ const ProcessOrder = ({ history, match }) => {
                   display: order.orderStatus === "Delivered" ? "none" : "block",
                 }}
               >
+                <div className="orderDetailsContainerBox">
+                  <h2>Payment</h2>
+                  <div>
+                    <p
+                      className={
+                        order.paymentInfo &&
+                        order.paymentInfo.status === "succeeded"
+                          ? "greenColor"
+                          : "redColor"
+                      }
+                    >
+                      {order.paymentInfo &&
+                      order.paymentInfo.status === "succeeded"
+                        ? "PAID"
+                        : "NOT PAID"}
+                    </p>
+                  </div>
+
+                  <div>
+                    <p>Amount:</p>
+                    <span>{order.totalPrice && order.totalPrice}</span>
+                  </div>
+                </div>
+                <div className="orderDetailsContainerBox">
+                  <h2>Order Status</h2>
+                  <div>
+                    <p
+                      className={
+                        order.orderStatus && order.orderStatus === "Delivered"
+                          ? "greenColor"
+                          : "redColor"
+                      }
+                    >
+                      {order.orderStatus && order.orderStatus}
+                    </p>
+                  </div>
+                </div>
                 <form
                   className="updateOrderForm"
                   onSubmit={updateOrderSubmitHandler}

@@ -4,6 +4,7 @@ const {
   getSingleOrder,
   myOrders,
   getAllOrders,
+  // getOrders,
   updateOrder,
   deleteOrder,
 } = require("../controllers/orderController");
@@ -17,9 +18,12 @@ router.route("/order/:id").get(isAuthenticatedUser, getSingleOrder);
 
 router.route("/orders/me").get(isAuthenticatedUser, myOrders);
 
-router
-  .route("/admin/orders")
-  .get(isAuthenticatedUser, authorizeRoles("admin"), getAllOrders);
+router.route("/admin/orders").get(getAllOrders);
+// router
+//   .route("/admin/orders")
+//   .get(isAuthenticatedUser, authorizeRoles("admin"), getAllOrders);
+
+// router.route("/orders").get(getOrders);
 
 router
   .route("/admin/order/:id")
