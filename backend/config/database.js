@@ -1,15 +1,13 @@
 const mongoose = require("mongoose");
 // process.env.DB_URI
+mongoose.set("useFindAndModify", false);
 const connectDatabase = () => {
   mongoose
-    .connect(
-      "mongodb+srv://scrap:scrap1234@cluster0.tfw3p.mongodb.net/scrap-into-creative?retryWrites=true&w=majority",
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true,
-      }
-    )
+    .connect(process.env.DB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+    })
     .then((data) => {
       console.log(`Mongodb connected with server: ${data.connection.host}`);
     });
