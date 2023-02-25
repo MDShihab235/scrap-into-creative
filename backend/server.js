@@ -11,7 +11,7 @@ process.on("uncaughtException", (err) => {
 
 //Config
 if (process.env.NODE_ENV !== "PRODUCTION") {
-  require("dotenv").config({ path: "../.env" });
+  require("dotenv").config({ path: "./config/config.env" });
 }
 
 // Connecting to database
@@ -23,8 +23,8 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-const server = app.listen(process.env.PORT, () => {
-  console.log(`Server is working on http://localhost:${process.env.PORT}`);
+const server = app.listen(4000, () => {
+  console.log(`Server is working on http://localhost:4000`);
 });
 
 // Unhandled Promise Rejection
@@ -36,3 +36,5 @@ process.on("unhandledRejection", (err) => {
     process.exit(1);
   });
 });
+
+// "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"

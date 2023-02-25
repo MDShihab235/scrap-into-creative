@@ -45,7 +45,7 @@ import ProductReviews from "./component/Admin/ProductReviews";
 import ScrapProductReviews from "./component/Admin/ScrapProductReviews";
 import Contact from "./component/layout/Contact/Contact";
 import About from "./component/layout/About/About";
-import NotFound from "./component/layout/Not Found/NotFound";
+// import NotFound from "./component/layout/Not Found/NotFound";
 import Navbar from "./component/Navbar/Navbar";
 import ScrapProductDetails from "./component/Product/ScrapProductDetails";
 import ScrapProducts from "./component/Product/ScrapProducts";
