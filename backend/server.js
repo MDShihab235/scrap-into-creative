@@ -45,5 +45,3 @@ process.on("unhandledRejection", (err) => {
 //     res.sendFile(path.join(__dirname, "../frontend", "build", "index.html"));
 //   });
 // }
-
-// "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"
