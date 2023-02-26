@@ -1,6 +1,7 @@
 const app = require("./app");
 const cloudinary = require("cloudinary");
 const connectDatabase = require("./config/database");
+const express = require("express");
 
 // Handling Uncaught Exception
 process.on("uncaughtException", (err) => {
@@ -37,11 +38,12 @@ process.on("unhandledRejection", (err) => {
   });
 });
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(__dirname, "../frontend", "build")));
-//   app.get("/*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "../frontend", "build", "index.html"));
-//   });
-// }
+if (process.env.NODE_ENV === "production") {
+  const app = express();
+  app.use(express.static(path.join(__dirname, "../frontend", "build")));
+  app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend", "build", "index.html"));
+  });
+}
 
 // "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"
