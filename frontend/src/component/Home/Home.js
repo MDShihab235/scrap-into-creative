@@ -64,7 +64,7 @@ const Home = () => {
               </button>
             </a>
           </div>
-          <h2 className="homeHeading">Best Selling Products</h2>
+          <h2 className="homeHeading">Best Selling Products trend</h2>
 
           <div className="container" id="container">
             {orders &&
